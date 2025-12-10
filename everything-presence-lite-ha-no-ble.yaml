@@ -5,6 +5,17 @@ substitutions:
   hidden_ssid: "false"
   log_level: DEBUG
 
+safe_mode:
+  boot:
+    recovery: 3
+
+wifi:
+  ap:
+    ssid: "${device_name}-fallback"
+
+ota:
+  safe_mode: true
+
 update:
   - platform: http_request
     id: update_http_request
