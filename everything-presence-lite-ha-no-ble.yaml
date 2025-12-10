@@ -13,7 +13,7 @@ update:
     disabled_by_default: true
 
 dashboard_import:
-  package_import_url: github://rmflom/everything-presence-lite-esp01s/everything-presence-lite-ha-no-ble.yaml@main
+  package_import_url: github://rmflom/everything-presence-lite-esp01s/everything-presence-lite-ha-no-ble.yaml@esp01s
   import_full_config: false # or true
 
 packages:
