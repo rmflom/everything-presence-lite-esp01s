@@ -12,9 +12,9 @@ esp8266:
   framework:
     type: esp-idf
 
-# Enable logging
+# Disable logging
 logger:
-  level: ${log_level}
+  baud_rate: 0   # ← THIS disables serial log on GPIO1/GPIO3
 
 # Enable Home Assistant API
 api:
