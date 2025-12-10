@@ -7,8 +7,8 @@ esphome:
     name: EverythingSmartTechnology.Everything Presence Lite
     version: "1.4.1"
 
-esp32:
-  board: esp32dev
+esp8266:
+  board: esp01_1m
   framework:
     type: esp-idf
 
@@ -31,17 +31,11 @@ wifi:
 
 improv_serial:
 
-i2c:
--  id: bus_a
-   sda: 21
-   scl: 22
-   scan: true
-
 light:
   - platform: status_led
     name: ESP32 LED
     id: esp32_led
-    pin: GPIO14
+    pin: GPIO2
     internal: False
     restore_mode: ALWAYS_OFF
     entity_category: config
@@ -64,19 +58,6 @@ number:
     on_value:
       - lambda: 'id(illuminance_sensor).update();'
 
-sensor:
-  - platform: bh1750
-    name: Illuminance
-    id: illuminance_sensor
-    i2c_id: bus_a
-    address: 0x23
-    update_interval: ${illuminance_update_interval}
-    accuracy_decimals: 1
-    filters:
-      - lambda: "return x + id(illuminance_offset_ui).state;"
-      - delta: 5%
-      - clamp:
-          min_value: 0
 
 binary_sensor:
   - platform: gpio
